@@ -1,4 +1,5 @@
 <%
  ui.decorateWith("appui", "standardEmrPage")
 %>
-Hello World!
+<h2>Hello World!</h2>
+<div>Welcome ${user.personName.fullName}!</div>
