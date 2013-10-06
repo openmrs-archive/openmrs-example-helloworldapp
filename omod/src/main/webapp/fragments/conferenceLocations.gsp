@@ -7,4 +7,9 @@
         <% } %>
 
     </ul>
+    <br>
+    ${ui.includeFragment("uilibrary", "widget/button", [
+        label: ui.message("helloworldapp.addLocation"),
+        href: "addLocation.page"])
+    }
 </div>

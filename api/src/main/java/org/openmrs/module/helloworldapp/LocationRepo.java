@@ -11,14 +11,26 @@
  *
  * Copyright (C) OpenMRS, LLC.  All Rights Reserved.
  */
-package org.openmrs.module.helloworldapp.fragment.controller;
+package org.openmrs.module.helloworldapp;
 
-import org.openmrs.module.helloworldapp.LocationRepo;
-import org.openmrs.ui.framework.fragment.FragmentModel;
+import java.util.ArrayList;
+import java.util.List;
 
-public class ConferenceLocationsFragmentController {
+public class LocationRepo {
 	
-	public void controller(FragmentModel fragmentModel) {
-		fragmentModel.addAttribute("prevLocations", LocationRepo.getLocations());
+	private static List<Location> locations = new ArrayList<Location>();
+	
+	public static List<Location> getLocations() {
+		if (locations.isEmpty()) {
+			locations.add(new Location("Cape Town", "South Africa"));
+			locations.add(new Location("Kigali", "Rwanda"));
+			locations.add(new Location("Cavite", "Phillpines"));
+		}
+		
+		return locations;
+	}
+	
+	public static void addLocation(Location location) {
+		locations.add(location);
 	}
 }

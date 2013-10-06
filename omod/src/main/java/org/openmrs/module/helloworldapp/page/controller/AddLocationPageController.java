@@ -11,14 +11,21 @@
  *
  * Copyright (C) OpenMRS, LLC.  All Rights Reserved.
  */
-package org.openmrs.module.helloworldapp.fragment.controller;
+package org.openmrs.module.helloworldapp.page.controller;
 
+import org.openmrs.module.helloworldapp.Location;
 import org.openmrs.module.helloworldapp.LocationRepo;
-import org.openmrs.ui.framework.fragment.FragmentModel;
+import org.openmrs.ui.framework.annotation.BindParams;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
-public class ConferenceLocationsFragmentController {
+public class AddLocationPageController {
 	
-	public void controller(FragmentModel fragmentModel) {
-		fragmentModel.addAttribute("prevLocations", LocationRepo.getLocations());
+	public void get() {
+	}
+	
+	public String post(@ModelAttribute("location") @BindParams Location location) {
+		LocationRepo.addLocation(location);
+		
+		return "redirect:helloworldapp/helloworld.page";
 	}
 }
