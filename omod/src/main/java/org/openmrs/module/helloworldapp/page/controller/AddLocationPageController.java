@@ -16,14 +16,13 @@ package org.openmrs.module.helloworldapp.page.controller;
 import org.openmrs.module.helloworldapp.Location;
 import org.openmrs.module.helloworldapp.LocationRepo;
 import org.openmrs.ui.framework.annotation.BindParams;
-import org.springframework.web.bind.annotation.ModelAttribute;
 
 public class AddLocationPageController {
 	
 	public void get() {
 	}
 	
-	public String post(@ModelAttribute("location") @BindParams Location location) {
+	public String post(@BindParams Location location) {
 		LocationRepo.addLocation(location);
 		
 		return "redirect:helloworldapp/helloworld.page";
